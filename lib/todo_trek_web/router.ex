@@ -23,6 +23,7 @@ defmodule TodoTrekWeb.Router do
     live_session :default,
       on_mount: [{TodoTrekWeb.UserAuth, :ensure_authenticated}, TodoTrekWeb.Scope] do
       live "/", HomeLive, :dashboard
+      live "/activity_entry/:id", ActivityEntryLive
       live "/lists/new", HomeLive, :new_list
       live "/lists/:id/edit", HomeLive, :edit_list
     end

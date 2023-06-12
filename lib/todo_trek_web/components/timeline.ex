@@ -29,7 +29,9 @@ defmodule TodoTrekWeb.Timeline do
       ]}
     >
       <li :for={{id, entry} <- @stream} id={id}>
-        <.activity_entry action={entry.action} entry={entry} />
+        <.link navigate={~p"/activity_entry/#{entry.id}"}>
+          <.activity_entry action={entry.action} entry={entry} />
+        </.link>
       </li>
     </ul>
     <div :if={@end_of_timeline?} class="mt-5 text-[50px] text-center">
